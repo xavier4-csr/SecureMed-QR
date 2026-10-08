@@ -11,6 +11,9 @@ def _get_redis_url():
 
 class Config:
     SECRET_KEY              = os.environ.get("SECRET_KEY", "dev-secret-change-in-production")
+    # Keep the public app on fabricated data until the production access model
+    # and managed key handling have been independently reviewed.
+    DEMO_MODE               = True
 
     # ── Session storage ──────────────────────────────────────────────
     # Use Redis if available (Render paid tier), otherwise fall back to

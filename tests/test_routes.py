@@ -2,8 +2,8 @@
 test_routes.py — End-to-end route tests for SecureMed QR.
 Run: pytest tests/test_routes.py -v
 
-These tests use Flask's test client and a real MySQL connection,
-so the database must be running with credentials in .env.
+These legacy-flow regression tests use Flask's test client and mocked
+database/security helpers. They do not require a live patient database.
 """
 
 import json

@@ -1,5 +1,15 @@
 # SecureMed QR
 
+> **Current status: synthetic-data demonstration only.** The running app redirects `/` to `/demo/` and serves a fabricated profile at `/demo/record`. It does not authenticate responders and must not be used with real patient data. The former database-backed registration/responder routes are blocked outside tests. The demo does not initialize or connect to the patient database. No clinical, security-compliance, or availability guarantee is made.
+
+## Run the current demo
+
+Install dependencies with `pip install -r requirements.txt`, then run `python run.py` and open `http://localhost:5000/`. To test QR scanning on a phone, set `BASE_URL` to a reachable HTTPS address before generating the QR. The demo uses fixed synthetic values and does not need a patient database.
+
+Current demo routes: `/demo/`, `/demo/qr.png`, and `/demo/record`. Run checks with `pytest -q`.
+
+> **Historical prototype documentation follows.** The descriptions below refer to the earlier database-backed OTP/encryption prototype; that flow is intentionally not exposed by the current demo and should not be relied on for a security or production claim.
+
 A Flask-based emergency medical profile system with three layers of security:
 **AES-256-GCM encryption**, **TOTP one-time passwords**, and **SHA-256 record hashing**.
 
